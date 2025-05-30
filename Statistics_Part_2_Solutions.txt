@@ -1,0 +1,895 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# Statistics Part 2 Solutions"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Theoretical Questions"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "1. **What is hypothesis testing in statistics?**  \n",
+    "Hypothesis testing is a statistical method used to make inferences about population parameters based on sample data. It involves formulating a null hypothesis and an alternative hypothesis, collecting data, and determining whether the evidence supports rejecting the null hypothesis."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "2. **What is the null hypothesis, and how does it differ from the alternative hypothesis?**  \n",
+    "The null hypothesis (H₀) is a statement of no effect or no difference, assuming the status quo. The alternative hypothesis (H₁ or Hₐ) is the statement that there is an effect or difference. The null hypothesis is tested, and evidence is sought to reject it in favor of the alternative."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "3. **What is the significance level in hypothesis testing, and why is it important?**  \n",
+    "The significance level (α) is the probability of rejecting the null hypothesis when it is true, typically set at 0.05. It is important because it defines the threshold for determining statistical significance and controls the risk of Type I errors."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "4. **What does a P-value represent in hypothesis testing?**  \n",
+    "The P-value represents the probability of observing a test statistic as extreme as, or more extreme than, the one observed, assuming the null hypothesis is true."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "5. **How do you interpret the P-value in hypothesis testing?**  \n",
+    "If the P-value is less than or equal to the significance level (α), reject the null hypothesis, indicating strong evidence for the alternative. If the P-value is greater than α, fail to reject the null hypothesis, suggesting insufficient evidence to support the alternative."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "6. **What are Type 1 and Type 2 errors in hypothesis testing?**  \n",
+    "A Type I error occurs when the null hypothesis is incorrectly rejected (false positive). A Type II error occurs when the null hypothesis is not rejected when it is false (false negative)."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "7. **What is the difference between a one-tailed and a two-tailed test in hypothesis testing?**  \n",
+    "A one-tailed test examines whether a parameter is greater than or less than a value (directional). A two-tailed test checks for any difference (greater or less) from a specified value (non-directional)."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "8. **What is the Z-test, and when is it used in hypothesis testing?**  \n",
+    "A Z-test is a statistical test used to compare a sample mean to a known population mean when the population variance is known and the sample size is large (n ≥ 30). It assumes the data follows a normal distribution."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "9. **How do you calculate the Z-score, and what does it represent in hypothesis testing?**  \n",
+    "The Z-score is calculated as Z = (x̄ - μ) / (σ / √n), where x̄ is the sample mean, μ is the population mean, σ is the population standard deviation, and n is the sample size. It represents how many standard deviations the sample mean is from the population mean."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "10. **What is the T-distribution, and when should it be used instead of the normal distribution?**  \n",
+    "The T-distribution is a probability distribution used when the population variance is unknown and/or the sample size is small (n < 30). It is used instead of the normal distribution in such cases because it accounts for increased variability."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "11. **What is the difference between a Z-test and a T-test?**  \n",
+    "A Z-test is used when the population variance is known and the sample size is large, while a T-test is used when the population variance is unknown and/or the sample size is small."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "12. **What is the T-test, and how is it used in hypothesis testing?**  \n",
+    "A T-test is a statistical test used to compare means when the population variance is unknown. It includes one-sample, independent, and paired T-tests to assess differences between means under the T-distribution."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "13. **What is the relationship between Z-test and T-test in hypothesis testing?**  \n",
+    "Both tests compare means, but the Z-test uses the normal distribution with known population variance and large samples, while the T-test uses the T-distribution for unknown variance and/or small samples."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "14. **What is a confidence interval, and how is it used to interpret statistical results?**  \n",
+    "A confidence interval is a range of values estimating a population parameter with a specified confidence level (e.g., 95%). It is used to quantify the uncertainty around the estimate, indicating the range within which the true parameter likely lies."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "15. **What is the margin of error, and how does it affect the confidence interval?**  \n",
+    "The margin of error is the maximum expected difference between the sample estimate and the true population parameter. It determines the width of the confidence interval; a larger margin of error results in a wider interval."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "16. **How is Bayes' Theorem used in statistics, and what is its significance?**  \n",
+    "Bayes' Theorem calculates conditional probabilities, updating probabilities based on new evidence: P(A|B) = [P(B|A) * P(A)] / P(B). It is significant in Bayesian inference for updating beliefs and making probabilistic predictions."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "17. **What is the Chi-square distribution, and when is it used?**  \n",
+    "The Chi-square distribution is a probability distribution used to test hypotheses about categorical data or variances. It is used in goodness-of-fit tests, tests of independence, and variance tests."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "18. **What is the Chi-square goodness of fit test, and how is it applied?**  \n",
+    "The Chi-square goodness of fit test assesses whether observed data fits an expected distribution. It compares observed and expected frequencies using the Chi-square statistic to determine if differences are significant."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "19. **What is the F-distribution, and when is it used in hypothesis testing?**  \n",
+    "The F-distribution is a probability distribution used to compare variances between two or more groups. It is used in ANOVA and F-tests to test equality of variances or group means."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "20. **What is an ANOVA test, and what are its assumptions?**  \n",
+    "ANOVA (Analysis of Variance) tests whether there are significant differences between means of multiple groups. Assumptions include normality, independence of observations, and equal variances (homoscedasticity)."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "21. **What are the different types of ANOVA tests?**  \n",
+    "Types include one-way ANOVA (one factor, multiple groups), two-way ANOVA (two factors, assessing main and interaction effects), and repeated measures ANOVA (within-subjects design)."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "22. **What is the F-test, and how does it relate to hypothesis testing?**  \n",
+    "The F-test compares variances of two or more groups using the F-distribution. In hypothesis testing, it assesses whether variances are equal or if group means differ (e.g., in ANOVA)."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Practical Questions"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "import numpy as np\n",
+    "import scipy.stats as stats\n",
+    "import matplotlib.pyplot as plt\n",
+    "import seaborn as sns\n",
+    "import pandas as pd\n",
+    "\n",
+    "# Set random seed for reproducibility\n",
+    "np.random.seed(42)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "23. **Write a Python program to perform a Z-test for comparing a sample mean to a known population mean and interpret the results.**"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "def z_test_sample_mean(sample, pop_mean, pop_std, alpha=0.05):\n",
+    "    sample_mean = np.mean(sample)\n",
+    "    sample_size = len(sample)\n",
+    "    z_score = (sample_mean - pop_mean) / (pop_std / np.sqrt(sample_size))\n",
+    "    p_value = 2 * (1 - stats.norm.cdf(abs(z_score)))\n",
+    "    print(f'Z-score: {z_score:.4f}')\n",
+    "    print(f'P-value: {p_value:.4f}')\n",
+    "    if p_value < alpha:\n",
+    "        print('Reject the null hypothesis.')\n",
+    "    else:\n",
+    "        print('Fail to reject the null hypothesis.')\n",
+    "\n",
+    "sample = np.random.normal(50, 10, 50)\n",
+    "z_test_sample_mean(sample, pop_mean=48, pop_std=10)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "24. **Simulate random data to perform hypothesis testing and calculate the corresponding P-value using Python.**"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "sample = np.random.normal(100, 15, 40)\n",
+    "pop_mean = 98\n",
+    "pop_std = 15\n",
+    "z_score = (np.mean(sample) - pop_mean) / (pop_std / np.sqrt(len(sample)))\n",
+    "p_value = 2 * (1 - stats.norm.cdf(abs(z_score)))\n",
+    "print(f'Z-score: {z_score:.4f}')\n",
+    "print(f'P-value: {p_value:.4f}')"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "25. **Implement a one-sample Z-test using Python to compare the sample mean with the population mean.**"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "sample = np.random.normal(75, 12, 60)\n",
+    "pop_mean = 70\n",
+    "pop_std = 12\n",
+    "z_score = (np.mean(sample) - pop_mean) / (pop_std / np.sqrt(len(sample)))\n",
+    "p_value = 2 * (1 - stats.norm.cdf(abs(z_score)))\n",
+    "print(f'Z-score: {z_score:.4f}')\n",
+    "print(f'P-value: {p_value:.4f}')"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "26. **Perform a two-tailed Z-test using Python and visualize the decision region on a plot.**"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "sample = np.random.normal(50, 10, 50)\n",
+    "pop_mean = 48\n",
+    "pop_std = 10\n",
+    "z_score = (np.mean(sample) - pop_mean) / (pop_std / np.sqrt(len(sample)))\n",
+    "p_value = 2 * (1 - stats.norm.cdf(abs(z_score)))\n",
+    "print(f'Z-score: {z_score:.4f}')\n",
+    "print(f'P-value: {p_value:.4f}')\n",
+    "\n",
+    "x = np.linspace(-4, 4, 1000)\n",
+    "y = stats.norm.pdf(x, 0, 1)\n",
+    "plt.plot(x, y, label='Standard Normal')\n",
+    "plt.fill_between(x, y, where=(x <= -1.96) | (x >= 1.96), color='red', alpha=0.3, label='Rejection Region')\n",
+    "plt.axvline(z_score, color='blue', linestyle='--', label=f'Z-score = {z_score:.2f}')\n",
+    "plt.title('Two-tailed Z-test Decision Region')\n",
+    "plt.legend()\n",
+    "plt.savefig('z_test_decision_region.png')\n",
+    "plt.show()"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "27. **Create a Python function that calculates and visualizes Type 1 and Type 2 errors during hypothesis testing.**"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "def type_errors_visualization(pop_mean_null=50, pop_mean_alt=52, pop_std=10, sample_size=50, alpha=0.05):\n",
+    "    z_crit = stats.norm.ppf(1 - alpha/2)\n",
+    "    se = pop_std / np.sqrt(sample_size)\n",
+    "    x = np.linspace(45, 55, 1000)\n",
+    "    null_dist = stats.norm.pdf(x, pop_mean_null, se)\n",
+    "    alt_dist = stats.norm.pdf(x, pop_mean_alt, se)\n",
+    "    crit_val = pop_mean_null + z_crit * se\n",
+    "    plt.plot(x, null_dist, label='Null Hypothesis')\n",
+    "    plt.plot(x, alt_dist, label='Alternative Hypothesis')\n",
+    "    plt.fill_between(x, null_dist, where=(x >= crit_val), color='red', alpha=0.3, label='Type I Error')\n",
+    "    plt.fill_between(x, alt_dist, where=(x <= crit_val), color='blue', alpha=0.3, label='Type II Error')\n",
+    "    plt.title('Type I and Type II Errors')\n",
+    "    plt.legend()\n",
+    "    plt.savefig('type_errors.png')\n",
+    "    plt.show()\n",
+    "\n",
+    "type_errors_visualization()"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "28. **Write a Python program to perform an independent T-test and interpret the results.**"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "group1 = np.random.normal(50, 10, 30)\n",
+    "group2 = np.random.normal(53, 10, 30)\n",
+    "t_stat, p_value = stats.ttest_ind(group1, group2)\n",
+    "print(f'T-statistic: {t_stat:.4f}')\n",
+    "print(f'P-value: {p_value:.4f}')\n",
+    "if p_value < 0.05:\n",
+    "    print('Reject the null hypothesis.')\n",
+    "else:\n",
+    "    print('Fail to reject the null hypothesis.')"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "29. **Perform a paired sample T-test using Python and visualize the comparison results.**"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "before = np.random.normal(100, 15, 20)\n",
+    "after = before + np.random.normal(2, 5, 20)\n",
+    "t_stat, p_value = stats.ttest_rel(before, after)\n",
+    "print(f'T-statistic: {t_stat:.4f}')\n",
+    "print(f'P-value: {p_value:.4f}')\n",
+    "plt.boxplot([before, after], labels=['Before', 'After'])\n",
+    "plt.title('Paired T-test Comparison')\n",
+    "plt.savefig('paired_ttest.png')\n",
+    "plt.show()"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "30. **Simulate data and perform both Z-test and T-test, then compare the results using Python.**"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "sample = np.random.normal(50, 10, 50)\n",
+    "pop_mean = 48\n",
+    "pop_std = 10\n",
+    "# Z-test\n",
+    "z_score = (np.mean(sample) - pop_mean) / (pop_std / np.sqrt(len(sample)))\n",
+    "p_value_z = 2 * (1 - stats.norm.cdf(abs(z_score)))\n",
+    "# T-test\n",
+    "t_stat, p_value_t = stats.ttest_1samp(sample, pop_mean)\n",
+    "print(f'Z-test: Z-score = {z_score:.4f}, P-value = {p_value_z:.4f}')\n",
+    "print(f'T-test: T-statistic = {t_stat:.4f}, P-value = {p_value_t:.4f}')"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "31. **Write a Python function to calculate the confidence interval for a sample mean and explain its significance.**"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "def confidence_interval(sample, confidence=0.95):\n",
+    "    sample_mean = np.mean(sample)\n",
+    "    sample_std = np.std(sample, ddof=1)\n",
+    "    n = len(sample)\n",
+    "    z_crit = stats.norm.ppf(1 - (1 - confidence) / 2)\n",
+    "    margin_error = z_crit * (sample_std / np.sqrt(n))\n",
+    "    ci_lower = sample_mean - margin_error\n",
+    "    ci_upper = sample_mean + margin_error\n",
+    "    print(f'Confidence Interval: ({ci_lower:.2f}, {ci_upper:.2f})')\n",
+    "    print('The interval estimates the population mean with 95% confidence.')\n",
+    "\n",
+    "sample = np.random.normal(100, 15, 50)\n",
+    "confidence_interval(sample)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "32. **Write a Python program to calculate the margin of error for a given confidence level using sample data.**"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "sample = np.random.normal(100, 15, 50)\n",
+    "sample_std = np.std(sample, ddof=1)\n",
+    "n = len(sample)\n",
+    "z_crit = stats.norm.ppf(1 - 0.05 / 2)\n",
+    "margin_error = z_crit * (sample_std / np.sqrt(n))\n",
+    "print(f'Margin of Error: {margin_error:.2f}')"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "33. **Implement a Bayesian inference method using Bayes' Theorem in Python and explain the process.**"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "def bayes_theorem(prior_a, prob_b_given_a, prob_b):\n",
+    "    posterior = (prob_b_given_a * prior_a) / prob_b\n",
+    "    print(f'Posterior Probability: {posterior:.4f}')\n",
+    "    print('Bayes’ Theorem updates the prior probability based on new evidence.')\n",
+    "\n",
+    "bayes_theorem(prior_a=0.01, prob_b_given_a=0.95, prob_b=0.02)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "34. **Perform a Chi-square test for independence between two categorical variables in Python.**"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "data = pd.DataFrame({\n",
+    "    'Group': ['A']*50 + ['B']*50,\n",
+    "    'Outcome': np.random.choice(['Success', 'Failure'], 100)\n",
+    "})\n",
+    "contingency_table = pd.crosstab(data['Group'], data['Outcome'])\n",
+    "chi2_stat, p_value, dof, expected = stats.chi2_contingency(contingency_table)\n",
+    "print(f'Chi-square Statistic: {chi2_stat:.4f}')\n",
+    "print(f'P-value: {p_value:.4f}')"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "35. **Write a Python program to calculate the expected frequencies for a Chi-square test based on observed data.**"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "observed = np.array([[10, 20, 30], [15, 25, 20]])\n",
+    "_, _, _, expected = stats.chi2_contingency(observed)\n",
+    "print('Expected Frequencies:')\n",
+    "print(expected)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "36. **Perform a goodness-of-fit test using Python to compare the observed data to an expected distribution.**"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "observed = [50, 30, 20]\n",
+    "expected = [40, 40, 20]\n",
+    "chi2_stat, p_value = stats.chisquare(observed, expected)\n",
+    "print(f'Chi-square Statistic: {chi2_stat:.4f}')\n",
+    "print(f'P-value: {p_value:.4f}')"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "37. **Create a Python script to simulate and visualize the Chi-square distribution and discuss its characteristics.**"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "x = np.linspace(0, 20, 1000)\n",
+    "for df in [2, 5, 10]:\n",
+    "    y = stats.chi2.pdf(x, df)\n",
+    "    plt.plot(x, y, label=f'df={df}')\n",
+    "plt.title('Chi-square Distribution')\n",
+    "plt.xlabel('Value')\n",
+    "plt.ylabel('Density')\n",
+    "plt.legend()\n",
+    "plt.savefig('chi_square_dist.png')\n",
+    "plt.show()"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "38. **Implement an F-test using Python to compare the variances of two random samples.**"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "sample1 = np.random.normal(100, 15, 50)\n",
+    "sample2 = np.random.normal(100, 20, 50)\n",
+    "var1 = np.var(sample1, ddof=1)\n",
+    "var2 = np.var(sample2, ddof=1)\n",
+    "f_stat = var1 / var2 if var1 > var2 else var2 / var1\n",
+    "p_value = 2 * (1 - stats.f.cdf(f_stat, len(sample1)-1, len(sample2)-1))\n",
+    "print(f'F-statistic: {f_stat:.4f}')\n",
+    "print(f'P-value: {p_value:.4f}')"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "39. **Write a Python program to perform an ANOVA test to compare means between multiple groups and interpret the results.**"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "group1 = np.random.normal(50, 10, 30)\n",
+    "group2 = np.random.normal(55, 10, 30)\n",
+    "group3 = np.random.normal(60, 10, 30)\n",
+    "f_stat, p_value = stats.f_oneway(group1, group2, group3)\n",
+    "print(f'F-statistic: {f_stat:.4f}')\n",
+    "print(f'P-value: {p_value:.4f}')"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "40. **Perform a one-way ANOVA test using Python to compare the means of different groups and plot the results.**"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "group1 = np.random.normal(50, 10, 30)\n",
+    "group2 = np.random.normal(55, 10, 30)\n",
+    "group3 = np.random.normal(60, 10, 30)\n",
+    "f_stat, p_value = stats.f_oneway(group1, group2, group3)\n",
+    "print(f'F-statistic: {f_stat:.4f}')\n",
+    "print(f'P-value: {p_value:.4f}')\n",
+    "plt.boxplot([group1, group2, group3], labels=['Group 1', 'Group 2', 'Group 3'])\n",
+    "plt.title('One-way ANOVA Comparison')\n",
+    "plt.savefig('anova_boxplot.png')\n",
+    "plt.show()"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "41. **Write a Python function to check the assumptions (normality, independence, and equal variance) for ANOVA.**"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "def check_anova_assumptions(groups):\n",
+    "    # Normality\n",
+    "    for i, group in enumerate(groups):\n",
+    "        stat, p = stats.shapiro(group)\n",
+    "        print(f'Group {i+1} Shapiro-Wilk p-value: {p:.4f}')\n",
+    "    # Equal variance\n",
+    "    stat, p = stats.levene(*groups)\n",
+    "    print(f'Levene’s test p-value: {p:.4f}')\n",
+    "\n",
+    "groups = [np.random.normal(50, 10, 30), np.random.normal(55, 10, 30), np.random.normal(60, 10, 30)]\n",
+    "check_anova_assumptions(groups)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "42. **Perform a two-way ANOVA test using Python to study the interaction between two factors and visualize the results.**"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "import statsmodels.api as sm\n",
+    "from statsmodels.formula.api import ols\n",
+    "\n",
+    "data = pd.DataFrame({\n",
+    "    'value': np.concatenate([np.random.normal(50, 10, 20), np.random.normal(55, 10, 20),\n",
+    "                            np.random.normal(60, 10, 20), np.random.normal(65, 10, 20)]),\n",
+    "    'factor1': ['A']*40 + ['B']*40,\n",
+    "    'factor2': ['X']*20 + ['Y']*20 + ['X']*20 + ['Y']*20\n",
+    "})\n",
+    "model = ols('value ~ C(factor1) * C(factor2)', data=data).fit()\n",
+    "anova_table = sm.stats.anova_lm(model, typ=2)\n",
+    "print(anova_table)\n",
+    "sns.boxplot(x='factor1', y='value', hue='factor2', data=data)\n",
+    "plt.title('Two-way ANOVA Results')\n",
+    "plt.savefig('two_way_anova.png')\n",
+    "plt.show()"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "43. **Write a Python program to visualize the F-distribution and discuss its use in hypothesis testing.**"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "x = np.linspace(0, 5, 1000)\n",
+    "for dfn, dfd in [(5, 10), (10, 10), (20, 20)]:\n",
+    "    y = stats.f.pdf(x, dfn, dfd)\n",
+    "    plt.plot(x, y, label=f'dfn={dfn}, dfd={dfd}')\n",
+    "plt.title('F-Distribution')\n",
+    "plt.xlabel('Value')\n",
+    "plt.ylabel('Density')\n",
+    "plt.legend()\n",
+    "plt.savefig('f_distribution.png')\n",
+    "plt.show()"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "44. **Perform a one-way ANOVA test in Python and visualize the results with boxplots to compare group means.**"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "group1 = np.random.normal(50, 10, 30)\n",
+    "group2 = np.random.normal(55, 10, 30)\n",
+    "group3 = np.random.normal(60, 10, 30)\n",
+    "f_stat, p_value = stats.f_oneway(group1, group2, group3)\n",
+    "print(f'F-statistic: {f_stat:.4f}')\n",
+    "print(f'P-value: {p_value:.4f}')\n",
+    "plt.boxplot([group1, group2, group3], labels=['Group 1', 'Group 2', 'Group 3'])\n",
+    "plt.title('One-way ANOVA Boxplot')\n",
+    "plt.savefig('anova_boxplot2.png')\n",
+    "plt.show()"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "45. **Simulate random data from a normal distribution, then perform hypothesis testing to evaluate the means.**"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "sample = np.random.normal(100, 15, 50)\n",
+    "pop_mean = 98\n",
+    "t_stat, p_value = stats.ttest_1samp(sample, pop_mean)\n",
+    "print(f'T-statistic: {t_stat:.4f}')\n",
+    "print(f'P-value: {p_value:.4f}')"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "46. **Perform a hypothesis test for population variance using a Chi-square distribution and interpret the results.**"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "sample = np.random.normal(100, 15, 50)\n",
+    "sample_var = np.var(sample, ddof=1)\n",
+    "pop_var = 225\n",
+    "n = len(sample)\n",
+    "chi2_stat = (n - 1) * sample_var / pop_var\n",
+    "p_value = 2 * (1 - stats.chi2.cdf(abs(chi2_stat), n - 1))\n",
+    "print(f'Chi-square Statistic: {chi2_stat:.4f}')\n",
+    "print(f'P-value: {p_value:.4f}')"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "47. **Write a Python script to perform a Z-test for comparing proportions between two datasets or groups.**"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "def z_test_proportions(p1, p2, n1, n2, alpha=0.05):\n",
+    "    p_pooled = (p1 * n1 + p2 * n2) / (n1 + n2)\n",
+    "    se = np.sqrt(p_pooled * (1 - p_pooled) * (1/n1 + 1/n2))\n",
+    "    z_score = (p1 - p2) / se\n",
+    "    p_value = 2 * (1 - stats.norm.cdf(abs(z_score)))\n",
+    "    print(f'Z-score: {z_score:.4f}')\n",
+    "    print(f'P-value: {p_value:.4f}')\n",
+    "\n",
+    "z_test_proportions(0.6, 0.5, 100, 100)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "48. **Implement an F-test for comparing the variances of two datasets, then interpret and visualize the results.**"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "sample1 = np.random.normal(100, 15, 50)\n",
+    "sample2 = np.random.normal(100, 20, 50)\n",
+    "var1 = np.var(sample1, ddof=1)\n",
+    "var2 = np.var(sample2, ddof=1)\n",
+    "f_stat = var1 / var2 if var1 > var2 else var2 / var1\n",
+    "p_value = 2 * (1 - stats.f.cdf(f_stat, len(sample1)-1, len(sample2)-1))\n",
+    "print(f'F-statistic: {f_stat:.4f}')\n",
+    "print(f'P-value: {p_value:.4f}')\n",
+    "plt.boxplot([sample1, sample2], labels=['Sample 1', 'Sample 2'])\n",
+    "plt.title('F-test Variance Comparison')\n",
+    "plt.savefig('f_test_boxplot.png')\n",
+    "plt.show()"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "49. **Perform a Chi-square test for goodness of fit with simulated data and analyze the results.**"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "observed = np.random.multinomial(100, [0.3, 0.4, 0.3])\n",
+    "expected = [30, 40, 30]\n",
+    "chi2_stat, p_value = stats.chisquare(observed, expected)\n",
+    "print(f'Chi-square Statistic: {chi2_stat:.4f}')\n",
+    "print(f'P-value: {p_value:.4f}')"
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.8.10"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}
